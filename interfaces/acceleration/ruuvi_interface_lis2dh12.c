@@ -235,7 +235,7 @@ ruuvi_driver_status_t ruuvi_interface_lis2dh12_samplerate_set(uint8_t* samplerat
 
   if(RUUVI_DRIVER_SENSOR_CFG_NO_CHANGE == *samplerate)   {}
   else if(RUUVI_DRIVER_SENSOR_CFG_MIN == *samplerate)    { dev.samplerate = LIS2DH12_ODR_1Hz;   }
-  else if(RUUVI_DRIVER_SENSOR_CFG_MAX == *samplerate)    { dev.samplerate = LIS2DH12_ODR_200Hz; }
+  else if(RUUVI_DRIVER_SENSOR_CFG_MAX == *samplerate)    { dev.samplerate = LIS2DH12_ODR_400Hz; }
   else if(RUUVI_DRIVER_SENSOR_CFG_DEFAULT == *samplerate){ dev.samplerate = LIS2DH12_ODR_1Hz;   }
   else if(1   == *samplerate)                            { dev.samplerate = LIS2DH12_ODR_1Hz;   }
   else if(10  >= *samplerate)                            { dev.samplerate = LIS2DH12_ODR_10Hz;  }
@@ -286,6 +286,10 @@ ruuvi_driver_status_t ruuvi_interface_lis2dh12_samplerate_get(uint8_t* samplerat
 
     case LIS2DH12_ODR_200Hz:
       *samplerate = 200;
+      break;
+
+    case LIS2DH12_ODR_400Hz:
+      *samplerate = RUUVI_DRIVER_SENSOR_CFG_MAX;
       break;
 
     default:

@@ -71,9 +71,10 @@ ruuvi_driver_status_t ruuvi_interface_communication_radio_init  (const ruuvi_int
   RUUVI_DRIVER_ERROR_CHECK(err_code, NRF_SUCCESS);
 
   // Initialize radio interrupts
-  err_code |= ble_radio_notification_init(NRF5_SDK15_RADIO_IRQ_PRIORITY,
+  /*err_code |= ble_radio_notification_init(NRF5_SDK15_RADIO_IRQ_PRIORITY,
                                           NRF_RADIO_NOTIFICATION_DISTANCE_800US,
-                                          on_radio_evt);
+                                          on_radio_evt);*/
+ 
 
   return ruuvi_platform_to_ruuvi_error(&err_code);
 }
